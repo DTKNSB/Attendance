@@ -13,25 +13,18 @@
   --border:#252525;--border2:#303030;
   --gold:#c8a96e;--gold2:rgba(200,169,110,.16);--gold3:rgba(200,169,110,.07);
   --text:#e2ddd5;--dim:#7a776f;--muted:#3a3835;
-  --green:#4caf82;   --green-bg:rgba(76,175,130,.1);
-  --amber:#e8a83e;   --amber-bg:rgba(232,168,62,.1);
-  --red:#e05c5c;     --red-bg:rgba(224,92,92,.1);
-  --blue:#7a9fe8;    --blue-bg:rgba(122,159,232,.1);
-  --purple:#b47edc;  --purple-bg:rgba(180,126,220,.1);
-  --r:10px;--r-sm:7px;
-  --head:'Syne',sans-serif;--body:'DM Sans',sans-serif;
-  --ease:.16s ease;
+  --green:#4caf82;--green-bg:rgba(76,175,130,.1);
+  --amber:#e8a83e;--amber-bg:rgba(232,168,62,.1);
+  --red:#e05c5c;--red-bg:rgba(224,92,92,.1);
+  --blue:#7a9fe8;--blue-bg:rgba(122,159,232,.1);
+  --purple:#b47edc;--purple-bg:rgba(180,126,220,.1);
+  --r:10px;--r-sm:7px;--head:'Syne',sans-serif;--body:'DM Sans',sans-serif;--ease:.16s ease;
 }
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--body);font-size:14px}
 button{cursor:pointer;font-family:var(--body);border:none;outline:none;background:none}
-input,select{font-family:var(--body);font-size:14px;color:var(--text);outline:none}
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
-
+input{font-family:var(--body);font-size:14px;color:var(--text);outline:none}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 #app{display:flex;flex-direction:column;height:100vh}
-
-/* ── BAR ── */
 .bar{height:50px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 22px;flex-shrink:0;gap:16px}
 .bar-brand{font-family:var(--head);font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .bar-right{display:flex;align-items:center;gap:16px}
@@ -43,17 +36,11 @@ input,select{font-family:var(--body);font-size:14px;color:var(--text);outline:no
 .sync-dot.ok{background:var(--green)}.sync-dot.busy{background:var(--amber);animation:blink .8s infinite}.sync-dot.err{background:var(--red)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .bar-clock{font-family:var(--head);font-size:12px;font-weight:600;color:var(--dim);letter-spacing:.05em;min-width:72px;text-align:right}
-
-/* ── NAV ── */
 .nav{background:var(--bg2);border-bottom:1px solid var(--border);display:flex;padding:0 22px;flex-shrink:0}
 .nav-tab{padding:13px 18px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-family:var(--head);font-weight:700;color:var(--dim);border-bottom:2px solid transparent;transition:color var(--ease),border-color var(--ease)}
 .nav-tab:hover{color:var(--text)}.nav-tab.on{color:var(--gold);border-bottom-color:var(--gold)}
-
-/* ── MAIN ── */
 .main{flex:1;overflow-y:auto;padding:24px}
 .pane{display:none}.pane.on{display:block}
-
-/* ── CONTROLS ── */
 .row-top{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
 .section-title{font-family:var(--head);font-size:17px;font-weight:800;letter-spacing:.03em}
 input[type=date]{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:7px 12px;color:var(--text);font-size:13px;transition:border-color var(--ease)}
@@ -62,79 +49,45 @@ input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.55);cursor:po
 .btn-today{background:var(--gold2);border:1px solid rgba(200,169,110,.25);border-radius:var(--r-sm);color:var(--gold);font-size:11px;letter-spacing:.07em;text-transform:uppercase;padding:7px 13px;font-family:var(--head);font-weight:700;transition:background var(--ease)}
 .btn-today:hover{background:rgba(200,169,110,.28)}
 .btn-save{background:var(--gold);color:#0e0e0e;font-family:var(--head);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border-radius:var(--r-sm);transition:opacity var(--ease),transform var(--ease);margin-left:auto}
-.btn-save:hover{opacity:.87;transform:translateY(-1px)}.btn-save:active{transform:none}
-.btn-save:disabled{opacity:.35;cursor:not-allowed;transform:none}
-
-/* ── LATE BANNER ── */
+.btn-save:hover{opacity:.87;transform:translateY(-1px)}.btn-save:active{transform:none}.btn-save:disabled{opacity:.35;cursor:not-allowed;transform:none}
 .late-banner{background:var(--amber-bg);border:1px solid rgba(232,168,62,.3);border-radius:var(--r-sm);padding:8px 14px;font-size:12px;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .late-banner.hidden{display:none}
-
-/* ── CARDS ── */
 .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:13px 14px;position:relative;overflow:hidden}
 .card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.card.c-p::after{background:var(--green)}.card.c-l::after{background:var(--amber)}
-.card.c-hd::after{background:var(--purple)}.card.c-a::after{background:var(--red)}.card.c-ol::after{background:var(--blue)}
+.card.c-p::after{background:var(--green)}.card.c-l::after{background:var(--amber)}.card.c-hd::after{background:var(--purple)}.card.c-a::after{background:var(--red)}.card.c-ol::after{background:var(--blue)}
 .card-num{font-family:var(--head);font-size:26px;font-weight:800;line-height:1}
-.card.c-p .card-num{color:var(--green)}.card.c-l .card-num{color:var(--amber)}
-.card.c-hd .card-num{color:var(--purple)}.card.c-a .card-num{color:var(--red)}.card.c-ol .card-num{color:var(--blue)}
+.card.c-p .card-num{color:var(--green)}.card.c-l .card-num{color:var(--amber)}.card.c-hd .card-num{color:var(--purple)}.card.c-a .card-num{color:var(--red)}.card.c-ol .card-num{color:var(--blue)}
 .card-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:4px}
-
-/* ── EMP LIST ── */
 .emp-list{display:flex;flex-direction:column;gap:5px}
 .emp-row{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:flex-start;gap:12px;padding:11px 14px;transition:border-color var(--ease),background var(--ease)}
 .emp-row:hover{background:var(--bg3)}
-.emp-row.s-P {border-color:rgba(76,175,130,.3); background:rgba(76,175,130,.02)}
-.emp-row.s-L {border-color:rgba(232,168,62,.35);background:rgba(232,168,62,.02)}
-.emp-row.s-HD{border-color:rgba(180,126,220,.3); background:rgba(180,126,220,.02)}
-.emp-row.s-A {border-color:rgba(224,92,92,.3);   background:rgba(224,92,92,.02)}
-.emp-row.s-OL{border-color:rgba(122,159,232,.3); background:rgba(122,159,232,.02)}
+.emp-row.s-P{border-color:rgba(76,175,130,.3);background:rgba(76,175,130,.02)}
+.emp-row.s-L{border-color:rgba(232,168,62,.35);background:rgba(232,168,62,.02)}
+.emp-row.s-HD{border-color:rgba(180,126,220,.3);background:rgba(180,126,220,.02)}
+.emp-row.s-A{border-color:rgba(224,92,92,.3);background:rgba(224,92,92,.02)}
+.emp-row.s-OL{border-color:rgba(122,159,232,.3);background:rgba(122,159,232,.02)}
 .emp-ava{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:var(--bg4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:11px;font-weight:700;color:var(--dim);margin-top:2px}
 .emp-meta{flex:1;min-width:0}
 .emp-name{font-weight:500;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .emp-dept{font-size:11px;color:var(--dim);margin-top:1px}
-
-/* timestamps */
 .emp-ts{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;min-height:20px}
 .ts-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 9px;border-radius:20px;background:var(--bg4);color:var(--dim);border:1px solid var(--border2)}
 .ts-chip.late{background:var(--amber-bg);color:var(--amber);border-color:rgba(232,168,62,.3)}
 .ts-chip.ontime{background:var(--green-bg);color:var(--green);border-color:rgba(76,175,130,.3)}
 .ts-chip.half{background:var(--purple-bg);color:var(--purple);border-color:rgba(180,126,220,.3)}
 .ts-chip .dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex-shrink:0}
-.ts-edit{font-size:11px;color:var(--dim);cursor:pointer;border-bottom:1px dashed transparent;transition:color var(--ease),border-color var(--ease);padding:0}
+.ts-edit{font-size:11px;color:var(--dim);cursor:pointer;border-bottom:1px dashed transparent;transition:color var(--ease),border-color var(--ease);padding:0;background:none;border-top:none;border-left:none;border-right:none}
 .ts-edit:hover{color:var(--gold);border-bottom-color:var(--gold)}
 input.time-inp{background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;font-size:11px;color:var(--text);width:82px}
 input.time-inp:focus{border-color:var(--gold)}
 .reason-tag{font-size:10px;padding:2px 9px;border-radius:20px;background:var(--bg4);color:var(--dim);letter-spacing:.04em;border:1px solid var(--border);text-transform:uppercase;font-weight:500}
-
-/* half day departure section */
-.hd-section{
-  display:flex;align-items:center;gap:8px;margin-top:6px;
-  background:var(--purple-bg);border:1px solid rgba(180,126,220,.25);
-  border-radius:6px;padding:6px 10px;flex-wrap:wrap;
-}
-.hd-label{font-size:11px;color:var(--purple);font-weight:500}
-.hd-time{font-family:var(--head);font-size:12px;font-weight:700;color:var(--purple)}
-.hd-edit{font-size:11px;color:var(--purple);opacity:.6;cursor:pointer;border-bottom:1px dashed rgba(180,126,220,.4);transition:opacity var(--ease)}
-.hd-edit:hover{opacity:1}
-
 .emp-actions{display:flex;align-items:center;gap:4px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;padding-top:2px}
 .status-badge{font-size:10px;letter-spacing:.06em;font-weight:700;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap}
-.b-P {background:var(--green-bg); color:var(--green)}
-.b-L {background:var(--amber-bg); color:var(--amber)}
-.b-HD{background:var(--purple-bg);color:var(--purple)}
-.b-A {background:var(--red-bg);   color:var(--red)}
-.b-OL{background:var(--blue-bg);  color:var(--blue)}
-.b-none{background:var(--bg4);color:var(--muted)}
+.b-P{background:var(--green-bg);color:var(--green)}.b-L{background:var(--amber-bg);color:var(--amber)}.b-HD{background:var(--purple-bg);color:var(--purple)}.b-A{background:var(--red-bg);color:var(--red)}.b-OL{background:var(--blue-bg);color:var(--blue)}.b-none{background:var(--bg4);color:var(--muted)}
 .mark-btn{font-size:11px;padding:5px 10px;border-radius:6px;border:1px solid var(--border2);color:var(--dim);letter-spacing:.02em;transition:all var(--ease);white-space:nowrap}
 .mark-btn:hover{border-color:var(--text);color:var(--text)}
-.mark-btn.act-P {background:var(--green-bg); border-color:var(--green); color:var(--green)}
-.mark-btn.act-L {background:var(--amber-bg); border-color:var(--amber); color:var(--amber)}
-.mark-btn.act-HD{background:var(--purple-bg);border-color:var(--purple);color:var(--purple)}
-.mark-btn.act-A {background:var(--red-bg);   border-color:var(--red);   color:var(--red)}
-.mark-btn.act-OL{background:var(--blue-bg);  border-color:var(--blue);  color:var(--blue)}
-
-/* ── HISTORY ── */
+.mark-btn.act-P{background:var(--green-bg);border-color:var(--green);color:var(--green)}.mark-btn.act-L{background:var(--amber-bg);border-color:var(--amber);color:var(--amber)}.mark-btn.act-HD{background:var(--purple-bg);border-color:var(--purple);color:var(--purple)}.mark-btn.act-A{background:var(--red-bg);border-color:var(--red);color:var(--red)}.mark-btn.act-OL{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
 .hist-controls{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .view-toggle{display:flex;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
 .view-btn{padding:6px 14px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-family:var(--head);font-weight:700;color:var(--dim);transition:all var(--ease)}
@@ -145,21 +98,13 @@ input.time-inp:focus{border-color:var(--gold)}
 table{width:100%;border-collapse:collapse;min-width:600px}
 th{background:var(--bg3);padding:10px 14px;text-align:left;white-space:nowrap;font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--border);position:sticky;top:0}
 td{padding:9px 14px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:var(--bg3)}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--bg3)}
 .cell{font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 7px;border-radius:4px;cursor:default;white-space:nowrap;display:inline-block;text-align:center;min-width:28px}
-.cell.P {color:var(--green); background:var(--green-bg)}
-.cell.L {color:var(--amber); background:var(--amber-bg)}
-.cell.HD{color:var(--purple);background:var(--purple-bg)}
-.cell.A {color:var(--red);   background:var(--red-bg)}
-.cell.OL{color:var(--blue);  background:var(--blue-bg)}
-.cell.X {color:var(--muted); background:none}
+.cell.P{color:var(--green);background:var(--green-bg)}.cell.L{color:var(--amber);background:var(--amber-bg)}.cell.HD{color:var(--purple);background:var(--purple-bg)}.cell.A{color:var(--red);background:var(--red-bg)}.cell.OL{color:var(--blue);background:var(--blue-bg)}.cell.X{color:var(--muted);background:none}
 [data-tip]{position:relative;cursor:default}
 [data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:5px 10px;font-size:11px;color:var(--text);white-space:nowrap;z-index:100;pointer-events:none}
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--dim)}
 .legend span{display:flex;align-items:center;gap:5px}
-
-/* ── MODALS ── */
 .modal-bg{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
 .modal-bg.open{opacity:1;pointer-events:auto}
 .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:28px;width:360px;max-width:93vw;transform:translateY(12px);transition:transform .2s}
@@ -168,38 +113,28 @@ tr:hover td{background:var(--bg3)}
 .modal-sub{font-size:12px;color:var(--dim);margin-bottom:18px}
 .modal-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
 .reason-opt{padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:13px;text-align:left;color:var(--text);transition:border-color var(--ease),background var(--ease),color var(--ease)}
-.reason-opt:hover{border-color:var(--gold);background:var(--gold3)}
-.reason-opt.sel{border-color:var(--gold);background:var(--gold2);color:var(--gold)}
+.reason-opt:hover{border-color:var(--gold);background:var(--gold3)}.reason-opt.sel{border-color:var(--gold);background:var(--gold2);color:var(--gold)}
 .modal-foot{display:flex;gap:8px;justify-content:flex-end}
 .btn-cancel{padding:8px 16px;border-radius:var(--r-sm);border:1px solid var(--border);color:var(--dim);font-size:12px;transition:color var(--ease)}
 .btn-cancel:hover{color:var(--text)}
 .btn-confirm{padding:8px 18px;border-radius:var(--r-sm);background:var(--gold);color:#0e0e0e;font-family:var(--head);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .btn-confirm:disabled{opacity:.35;cursor:not-allowed}
-
-/* half day modal extras */
-.hd-time-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.hd-time-row label{font-size:12px;color:var(--dim);white-space:nowrap}
+.hd-time-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.hd-time-row label{font-size:12px;color:var(--dim);white-space:nowrap;width:110px}
 input.hd-inp{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;color:var(--text);width:130px;transition:border-color var(--ease)}
 input.hd-inp:focus{border-color:var(--purple)}
-.hd-note{font-size:11px;color:var(--dim);margin-bottom:18px;line-height:1.5;padding:8px 12px;background:var(--purple-bg);border-radius:6px;border:1px solid rgba(180,126,220,.2)}
-
-/* ── TOAST ── */
+.hd-note{font-size:11px;color:var(--dim);margin-bottom:16px;line-height:1.6;padding:8px 12px;background:var(--purple-bg);border-radius:6px;border:1px solid rgba(180,126,220,.2)}
 #toast{position:fixed;bottom:22px;right:22px;z-index:500;display:flex;flex-direction:column;gap:7px;pointer-events:none}
 .t{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-sm);padding:10px 15px;font-size:12px;display:flex;align-items:center;gap:8px;animation:tin .2s ease;max-width:290px}
 .t.ok{border-left:3px solid var(--green)}.t.err{border-left:3px solid var(--red)}.t.info{border-left:3px solid var(--gold)}
 @keyframes tin{from{transform:translateX(16px);opacity:0}to{transform:none;opacity:1}}
-.empty{text-align:center;padding:56px 20px;color:var(--dim)}
-.empty .ico{font-size:34px;margin-bottom:12px;opacity:.35}
+.empty{text-align:center;padding:56px 20px;color:var(--dim)}.empty .ico{font-size:34px;margin-bottom:12px;opacity:.35}
+@media(max-width:700px){.cards{grid-template-columns:repeat(3,1fr)}.mark-btn{padding:4px 7px;font-size:10px}.emp-actions{gap:2px}}
 
-@media(max-width:700px){
-  .cards{grid-template-columns:repeat(3,1fr)}
-  .mark-btn{padding:4px 7px;font-size:10px}.emp-actions{gap:2px}
-}
 </style>
 </head>
 <body>
 <div id="app">
-
   <div class="bar">
     <div class="bar-brand">DT Attend</div>
     <div class="bar-right">
@@ -211,436 +146,350 @@ input.hd-inp:focus{border-color:var(--purple)}
       <div class="bar-clock" id="clock"></div>
     </div>
   </div>
-
   <div class="nav">
     <button class="nav-tab on" data-tab="mark" onclick="switchTab('mark')">Mark Attendance</button>
     <button class="nav-tab" data-tab="history" onclick="switchTab('history')">History</button>
   </div>
-
   <div class="main">
-
-    <!-- MARK -->
     <div class="pane on" id="paneMarkAttendance">
-      <div class="row-top">
-        <div class="section-title">Mark Attendance</div>
-        <input type="date" id="markDate" onchange="onDateChange()"/>
-        <button class="btn-today" onclick="goToday()">Today</button>
-        <button class="btn-save" id="btnSave" onclick="saveToServer()">↑ Save to Sheet</button>
-      </div>
-      <div class="late-banner hidden" id="lateBanner">
-        ⏰ Past <strong>10:30 AM</strong> — Present will auto-flag as <strong>Late</strong>.
-      </div>
-      <div class="cards">
-        <div class="card c-p" ><div class="card-num" id="cntP" >0</div><div class="card-lbl">Present</div></div>
-        <div class="card c-l" ><div class="card-num" id="cntL" >0</div><div class="card-lbl">Late</div></div>
-        <div class="card c-hd"><div class="card-num" id="cntHD">0</div><div class="card-lbl">Half Day</div></div>
-        <div class="card c-a" ><div class="card-num" id="cntA" >0</div><div class="card-lbl">Absent</div></div>
-        <div class="card c-ol"><div class="card-num" id="cntOL">0</div><div class="card-lbl">On Leave</div></div>
-      </div>
-      <div class="emp-list" id="empList"></div>
-    </div>
-
-    <!-- HISTORY -->
+  <div class="row-top">
+    <div class="section-title">Mark Attendance</div>
+    <input type="date" id="markDate" onchange="onDateChange()"/>
+    <button class="btn-today" onclick="goToday()">Today</button>
+    <button class="btn-save" id="btnSave" onclick="saveToServer()">&#8593; Save to Sheet</button>
+  </div>
+  <div class="late-banner hidden" id="lateBanner">&#9200; Past <strong>10:30 AM</strong> &mdash; Present will auto-flag as <strong>Late</strong>.</div>
+  <div class="cards">
+    <div class="card c-p"><div class="card-num" id="cntP">0</div><div class="card-lbl">Present</div></div>
+    <div class="card c-l"><div class="card-num" id="cntL">0</div><div class="card-lbl">Late</div></div>
+    <div class="card c-hd"><div class="card-num" id="cntHD">0</div><div class="card-lbl">Half Day</div></div>
+    <div class="card c-a"><div class="card-num" id="cntA">0</div><div class="card-lbl">Absent</div></div>
+    <div class="card c-ol"><div class="card-num" id="cntOL">0</div><div class="card-lbl">On Leave</div></div>
+  </div>
+  <div class="emp-list" id="empList"></div>
+</div>
     <div class="pane" id="paneHistory">
-      <div class="hist-controls">
-        <div class="section-title" style="margin-right:auto">Attendance History</div>
-        <div class="view-toggle">
-          <button class="view-btn on" onclick="setView('week')">Weekly</button>
-          <button class="view-btn" onclick="setView('month')">Monthly</button>
-        </div>
-        <input type="date" id="histFrom" style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:7px 10px;color:var(--text);font-size:12px"/>
-        <input type="date" id="histTo"   style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:7px 10px;color:var(--text);font-size:12px"/>
-        <button class="btn-load" onclick="loadHistory()">Load</button>
-      </div>
-      <div id="histContent"></div>
+  <div class="hist-controls">
+    <div class="section-title" style="margin-right:auto">Attendance History</div>
+    <div class="view-toggle">
+      <button class="view-btn on" onclick="setView('week')">Weekly</button>
+      <button class="view-btn" onclick="setView('month')">Monthly</button>
     </div>
-
+    <input type="date" id="histFrom" style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:7px 10px;color:var(--text);font-size:12px"/>
+    <input type="date" id="histTo" style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:7px 10px;color:var(--text);font-size:12px"/>
+    <button class="btn-load" onclick="loadHistory()">Load</button>
+  </div>
+  <div id="histContent"></div>
+</div>
+    
   </div>
 </div>
 
-<!-- REASON MODAL (Absent / On Leave) -->
 <div class="modal-bg" id="reasonModal">
   <div class="modal">
     <div class="modal-title" id="mTitle">Select Reason</div>
-    <div class="modal-sub"   id="mSub"></div>
-    <div class="modal-opts"  id="mOpts"></div>
+    <div class="modal-sub" id="mSub"></div>
+    <div class="modal-opts" id="mOpts"></div>
     <div class="modal-foot">
-      <button class="btn-cancel"  onclick="closeReasonModal()">Cancel</button>
+      <button class="btn-cancel" onclick="closeReasonModal()">Cancel</button>
       <button class="btn-confirm" id="btnReasonConfirm" onclick="confirmReason()" disabled>Confirm</button>
     </div>
   </div>
 </div>
-
-<!-- HALF DAY MODAL -->
 <div class="modal-bg" id="hdModal">
   <div class="modal">
     <div class="modal-title">Mark as Half Day</div>
     <div class="modal-sub" id="hdSub"></div>
-    <div class="hd-note">
-      Arrival time is auto-stamped from when you clicked.<br>
-      Set the expected departure time below.
-    </div>
-    <div class="hd-time-row">
-      <label>Arrival time</label>
-      <input class="hd-inp" type="time" id="hdArrival" readonly style="opacity:.6;cursor:default"/>
-    </div>
-    <div class="hd-time-row">
-      <label>Departure time</label>
-      <input class="hd-inp" type="time" id="hdDeparture" placeholder="e.g. 14:00"/>
-    </div>
+    <div class="hd-note">Arrival is auto-stamped. Set the expected departure time.</div>
+    <div class="hd-time-row"><label>Arrival time</label><input class="hd-inp" type="time" id="hdArrival" readonly style="opacity:.55;cursor:default"/></div>
+    <div class="hd-time-row"><label>Departure time</label><input class="hd-inp" type="time" id="hdDeparture"/></div>
     <div class="modal-foot">
       <button class="btn-cancel" onclick="closeHdModal()">Cancel</button>
       <button class="btn-confirm" onclick="confirmHalfDay()">Confirm</button>
     </div>
   </div>
 </div>
-
 <div id="toast"></div>
-
 <script>
-// ─────────────────────────────────────────────
-// CONFIG
-// ─────────────────────────────────────────────
-const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0fvmlOd7ED8OCNAX6rYku-NkZ9q9yNRjIHJPzU0S_ux8s1LcTO2_8Y6Q6WJ_mN5-i/exec';
+const LS_PREFIX = 'arch_';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0fvmlOd7ED8OCNAX6rYku-NkZ9q9yNRjIHJPzU0S_ux8s1LcTO2_8Y6Q6WJ_mN5-i/exec';
 const LATE_CUT   = '10:30';
 const LEAVE_TIME = '20:00';
+const REASONS    = { A:['Sick Leave','Casual Leave','Unauthorised'], OL:['Sick Leave','Casual Leave','Field Visit'] };
 
-const REASONS = {
-  A:  ['Sick Leave', 'Casual Leave', 'Unauthorised'],
-  OL: ['Sick Leave', 'Casual Leave', 'Field Visit'],
-};
+let employees=[], attendance={}, modalRes=null, selReason=null, hdResolve=null;
 
-// ─────────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────────
-let employees  = [];
-let attendance = {};   // { [date]: { [empId]: { status, time, departure, reason } } }
-let modalRes   = null;
-let selReason  = null;
-let hdEmpId    = null;
-let hdDate     = null;
-let hdResolve  = null;
-
-// ─────────────────────────────────────────────
-// UTILS
-// ─────────────────────────────────────────────
 const $  = id => document.getElementById(id);
 const td = () => new Date().toISOString().split('T')[0];
 const nt = () => { const d=new Date(); return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0'); };
-const ini = n  => n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-const lsGet = k => { try{return JSON.parse(localStorage.getItem('arch_'+k));}catch{return null;} };
-const lsSet = (k,v) => { try{localStorage.setItem('arch_'+k,JSON.stringify(v));}catch{} };
+const ini = n => n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
 
-function toast(msg, type='info', dur=3200){
-  const el=document.createElement('div'); el.className=`t ${type}`; el.textContent=msg;
-  $('toast').appendChild(el); setTimeout(()=>el.remove(),dur);
+function lsGet(k){try{return JSON.parse(localStorage.getItem(LS_PREFIX+k));}catch{return null;}}
+function lsSet(k,v){try{localStorage.setItem(LS_PREFIX+k,JSON.stringify(v));}catch{}}
+
+function toast(msg,type='info',dur=3200){
+  const el=document.createElement('div');el.className=`t ${type}`;el.textContent=msg;
+  $('toast').appendChild(el);setTimeout(()=>el.remove(),dur);
 }
-function syncSt(s,l){ $('syncDot').className='sync-dot '+s; $('syncLbl').textContent=l; }
-async function api(body){
-  const r=await fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+function syncSt(s,l){$('syncDot').className='sync-dot '+s;$('syncLbl').textContent=l;}
+
+// Resolve the GAS redirect once, cache the real URL, then use JSONP
+let _resolvedUrl = null;
+
+async function resolveUrl() {
+  if (_resolvedUrl) return _resolvedUrl;
+  // Fetch with no-cors just to follow redirect — we don't need the body,
+  // we need the final URL. Use a hidden iframe trick via opaque fetch.
+  // Actually: just do a normal fetch to the script URL — GAS returns JSON
+  // even cross-origin for GET (it's the preflight that blocks POST).
+  // The redirect lands on googleusercontent.com which DOES send CORS headers.
+  try {
+    const r = await fetch(SCRIPT_URL + '?action=ping', {redirect: 'follow'});
+    _resolvedUrl = r.url.split('?')[0];
+  } catch(e) {
+    _resolvedUrl = SCRIPT_URL;
+  }
+  return _resolvedUrl;
+}
+
+async function apiGet(params) {
+  // Try fetch first (works when googleusercontent.com sends CORS headers)
+  try {
+    const base = await resolveUrl();
+    const p = new URLSearchParams(params);
+    const r = await fetch(base + '?' + p.toString(), {redirect: 'follow'});
+    if (r.ok) return r.json();
+    throw new Error('fetch failed: ' + r.status);
+  } catch(fetchErr) {
+    // Fallback: JSONP against original URL
+    return jsonp(params);
+  }
+}
+
+function jsonp(params) {
+  return new Promise((resolve, reject) => {
+    const cb = '_cb' + Date.now() + Math.floor(Math.random() * 1e6);
+    const p = new URLSearchParams({...params, callback: cb});
+    const script = document.createElement('script');
+    const timer = setTimeout(() => { cleanup(); reject(new Error('Timeout')); }, 12000);
+    function cleanup() { delete window[cb]; if (script.parentNode) script.parentNode.removeChild(script); clearTimeout(timer); }
+    window[cb] = function(data) { cleanup(); resolve(data); };
+    script.onerror = () => { cleanup(); reject(new Error('Script load error')); };
+    script.src = SCRIPT_URL + '?' + p.toString();
+    document.head.appendChild(script);
+  });
+}
+
+async function apiPost(body) {
+  const r = await fetch(SCRIPT_URL, {
+    method: 'POST',
+    headers: {'Content-Type': 'text/plain'},
+    body: JSON.stringify(body)
+  });
   return r.json();
 }
 
-// ─────────────────────────────────────────────
-// CLOCK + LATE BANNER
-// ─────────────────────────────────────────────
 function tick(){
   $('clock').textContent=new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true});
-  const isToday=$('markDate')?.value===td();
-  $('lateBanner').classList.toggle('hidden',!(isToday && nt()>=LATE_CUT));
+  const isToday=$('markDate')&&$('markDate').value===td();
+  const banner=$('lateBanner');
+  if(banner)banner.classList.toggle('hidden',!(isToday&&nt()>=LATE_CUT));
 }
 setInterval(tick,15000);
 
-// ─────────────────────────────────────────────
-// BOOT
-// ─────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', async ()=>{
+window.addEventListener('DOMContentLoaded',async()=>{
   $('markDate').value=td();
-  setView('week'); tick();
-  employees  = lsGet('employees')  || [];
-  attendance = lsGet('attendance') || {};
+  setView('week');tick();
+  employees=lsGet('employees')||[];
+  attendance=lsGet('attendance')||{};
   renderEmpList();
+  if(typeof renderManageList==='function')renderManageList();
   await fetchEmployees();
   await fetchAttDate(td());
   renderEmpList();
+  if(typeof renderManageList==='function')renderManageList();
 });
 
-// ─────────────────────────────────────────────
-// SERVER
-// ─────────────────────────────────────────────
 async function fetchEmployees(){
   try{
     syncSt('busy','Loading…');
-    const r=await api({action:'getEmployees'});
-    if(r.ok&&r.employees.length){ employees=r.employees; lsSet('employees',employees); }
+    const r=await apiGet({action:'getEmployees'});
+    if(r.ok&&r.employees&&r.employees.length){employees=r.employees;lsSet('employees',employees);}
     syncSt('ok','Synced');
-  }catch{ syncSt('err','Offline'); toast('Using cached data','err'); }
+  }catch(e){syncSt('err','Offline');toast('Could not reach server: '+e.message,'err');}
 }
 
 async function fetchAttDate(date){
   try{
-    const r=await api({action:'getAttendance',date});
+    const r=await apiGet({action:'getAttendance',date});
     if(r.ok){
-      if(!attendance[date]) attendance[date]={};
-      r.rows.forEach(row=>{
-        attendance[date][row.employeeId]={
-          status:   row.status,
-          time:     row.time,
-          departure:row.departure||'',
-          reason:   row.reason
-        };
-      });
+      if(!attendance[date])attendance[date]={};
+      r.rows.forEach(row=>{attendance[date][row.employeeId]={status:row.status,time:row.time,departure:row.departure||'',reason:row.reason};});
       lsSet('attendance',attendance);
     }
   }catch{}
 }
 
 async function saveToServer(){
-  const date=$('markDate').value, day=attendance[date]||{};
+  const date=$('markDate').value,day=attendance[date]||{};
   const rows=employees.filter(e=>e.active).map(emp=>({
-    date, employeeId:emp.id, employeeName:emp.name, department:emp.department,
-    status:    day[emp.id]?.status    || '',
-    time:      day[emp.id]?.time      || '',
-    departure: day[emp.id]?.departure || '',
-    reason:    day[emp.id]?.reason    || ''
+    date,employeeId:emp.id,employeeName:emp.name,department:emp.department,
+    status:day[emp.id]?.status||'',time:day[emp.id]?.time||'',
+    departure:day[emp.id]?.departure||'',reason:day[emp.id]?.reason||''
   })).filter(r=>r.status);
-  if(!rows.length){ toast('Nothing marked for this date','info'); return; }
-  $('btnSave').disabled=true; syncSt('busy','Saving…');
+  if(!rows.length){toast('Nothing marked for this date','info');return;}
+  $('btnSave').disabled=true;syncSt('busy','Saving…');
   try{
-    const r=await api({action:'saveAttendance',data:rows});
-    if(r.ok){ syncSt('ok','Saved ✓'); toast(`${r.saved} records saved to sheet`,'ok'); }
+    const r=await apiPost({action:'saveAttendance',data:rows});
+    if(r.ok){syncSt('ok','Saved ✓');toast(`${r.saved} records saved`,'ok');}
     else throw new Error(r.error);
-  }catch(e){ syncSt('err','Failed'); toast('Save failed: '+e.message,'err'); }
-  finally{ $('btnSave').disabled=false; }
+  }catch(e){syncSt('err','Failed');toast('Save failed: '+e.message,'err');}
+  finally{$('btnSave').disabled=false;}
 }
 
-// ─────────────────────────────────────────────
-// TAB
-// ─────────────────────────────────────────────
 function switchTab(tab){
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===tab));
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
-  ({mark:'paneMarkAttendance',history:'paneHistory'})[tab] && $(({mark:'paneMarkAttendance',history:'paneHistory'})[tab]).classList.add('on');
+  const map={mark:'paneMarkAttendance',history:'paneHistory',manage:'paneManageEmployees'};
+  if(map[tab])$(map[tab]).classList.add('on');
 }
 
-// ─────────────────────────────────────────────
-// MARK ATTENDANCE
-// ─────────────────────────────────────────────
-function goToday(){ $('markDate').value=td(); onDateChange(); }
+function goToday(){$('markDate').value=td();onDateChange();}
 async function onDateChange(){
-  tick();
-  const date=$('markDate').value;
-  if(!attendance[date]) await fetchAttDate(date);
+  tick();const date=$('markDate').value;
+  if(!attendance[date])await fetchAttDate(date);
   renderEmpList();
 }
 
 function renderEmpList(){
-  const date=$('markDate')?.value||td(), day=attendance[date]||{};
+  const date=$('markDate')?.value||td(),day=attendance[date]||{};
   const actives=employees.filter(e=>e.active);
   let p=0,l=0,hd=0,a=0,ol=0;
-  actives.forEach(e=>{
-    const s=day[e.id]?.status;
-    if(s==='P')p++; else if(s==='L')l++; else if(s==='HD')hd++;
-    else if(s==='A')a++; else if(s==='OL')ol++;
-  });
-  $('cntP').textContent=p; $('cntL').textContent=l; $('cntHD').textContent=hd;
-  $('cntA').textContent=a; $('cntOL').textContent=ol;
-
+  actives.forEach(e=>{const s=day[e.id]?.status;if(s==='P')p++;else if(s==='L')l++;else if(s==='HD')hd++;else if(s==='A')a++;else if(s==='OL')ol++;});
+  $('cntP').textContent=p;$('cntL').textContent=l;$('cntHD').textContent=hd;$('cntA').textContent=a;$('cntOL').textContent=ol;
   const list=$('empList');
-  if(!actives.length){ list.innerHTML='<div class="empty"><div class="ico">👥</div><p>No active employees.</p></div>'; return; }
-
+  if(!actives.length){list.innerHTML='<div class="empty"><div class="ico">👥</div><p>No active employees.<br>Check server connection.</p></div>';return;}
   list.innerHTML=actives.map(emp=>{
-    const rec=day[emp.id]||{}, s=rec.status||'';
-
-    // ── Arrival timestamp chip
-    let arrivalHtml='';
+    const rec=day[emp.id]||{},s=rec.status||'';
+    let arrHtml='';
     if(s&&rec.time){
       const isLate=(s==='L')||(s==='P'&&rec.time>LATE_CUT)||(s==='HD'&&rec.time>LATE_CUT);
-      const cls=isLate?'late':'ontime', flag=isLate?'⚑ Late':'✓ On time';
-      arrivalHtml=`<span class="ts-chip ${cls}"><span class="dot"></span>In ${rec.time} — ${flag}</span>`;
+      arrHtml=`<span class="ts-chip ${isLate?'late':'ontime'}"><span class="dot"></span>In ${rec.time} — ${isLate?'⚑ Late':'✓ On time'}</span>`;
     }
-
-    // ── Departure chip (Half Day only)
-    let departureHtml='';
+    let depHtml='';
     if(s==='HD'){
       const dep=rec.departure||'—';
-      departureHtml=`
-        <span class="ts-chip half" id="depChip-${emp.id}">
-          <span class="dot"></span>Out ${dep}
-          <button class="hd-edit" onclick="editDeparture('${emp.id}','${date}')" style="background:none;border:none;cursor:pointer;color:inherit;font-size:10px;margin-left:3px;opacity:.7">✎</button>
-        </span>`;
+      depHtml=`<span class="ts-chip half" id="depChip-${emp.id}"><span class="dot"></span>Out ${dep} <button onclick="editDeparture('${emp.id}','${date}')" style="background:none;border:none;cursor:pointer;color:inherit;font-size:10px;margin-left:2px;opacity:.7">✎</button></span>`;
     }
-
-    // ── Reason tag
-    const reasonHtml=(s==='A'||s==='OL')&&rec.reason ? `<span class="reason-tag">${rec.reason}</span>` : '';
-
-    // ── Edit arrival time link
-    const editArrival=s?`<button class="ts-edit" onclick="editArrival('${emp.id}','${date}')">edit arrival</button>`:'';
-
-    // ── Badge
-    const badgeLabel={P:'Present',L:'Late',HD:'Half Day',A:'Absent',OL:'On Leave'};
-    const badge=s
-      ?`<span class="status-badge b-${s}">${badgeLabel[s]||s}</span>`
-      :`<span class="status-badge b-none">—</span>`;
-
-    // ── Mark buttons
-    const btnDefs=[
-      {st:'P',lbl:'Present'},{st:'L',lbl:'Late'},{st:'HD',lbl:'Half Day'},
-      {st:'A',lbl:'Absent'},{st:'OL',lbl:'On Leave'}
-    ];
-    const btns=btnDefs.map(({st,lbl})=>
-      `<button class="mark-btn ${s===st?`act-${st}`:''}" onclick="markStatus('${emp.id}','${date}','${st}')">${lbl}</button>`
-    ).join('');
-
-    return `
-    <div class="emp-row${s?` s-${s}`:''}" id="row-${emp.id}">
+    const reasonHtml=(s==='A'||s==='OL')&&rec.reason?`<span class="reason-tag">${rec.reason}</span>`:'';
+    const editArr=s?`<button class="ts-edit" onclick="editArrival('${emp.id}','${date}')">edit arrival</button>`:'';
+    const badgeLbl={P:'Present',L:'Late',HD:'Half Day',A:'Absent',OL:'On Leave'};
+    const badge=s?`<span class="status-badge b-${s}">${badgeLbl[s]||s}</span>`:`<span class="status-badge b-none">—</span>`;
+    const btns=['P','L','HD','A','OL'].map(st=>`<button class="mark-btn ${s===st?`act-${st}`:''}" onclick="markStatus('${emp.id}','${date}','${st}')">${{P:'Present',L:'Late',HD:'Half Day',A:'Absent',OL:'On Leave'}[st]}</button>`).join('');
+    return `<div class="emp-row${s?` s-${s}`:''}" id="row-${emp.id}">
       <div class="emp-ava">${ini(emp.name)}</div>
       <div class="emp-meta">
         <div class="emp-name">${emp.name}</div>
         <div class="emp-dept">${emp.department}</div>
-        <div class="emp-ts" id="ts-${emp.id}">
-          ${arrivalHtml}${departureHtml}${reasonHtml}${editArrival}
-        </div>
+        <div class="emp-ts" id="ts-${emp.id}">${arrHtml}${depHtml}${reasonHtml}${editArr}</div>
       </div>
       <div class="emp-actions">${badge}${btns}</div>
     </div>`;
   }).join('');
 }
 
-// ─────────────────────────────────────────────
-// MARK STATUS
-// ─────────────────────────────────────────────
-async function markStatus(empId, date, status){
-  if(!attendance[date]) attendance[date]={};
+async function markStatus(empId,date,status){
+  if(!attendance[date])attendance[date]={};
   const rec=attendance[date][empId]||{};
-
-  // Toggle off
-  if(rec.status===status){ delete attendance[date][empId]; lsSet('attendance',attendance); renderEmpList(); return; }
-
+  if(rec.status===status){delete attendance[date][empId];lsSet('attendance',attendance);renderEmpList();return;}
   if(status==='A'||status==='OL'){
     const emp=employees.find(e=>e.id===empId);
-    const reason=await promptReason(emp?.name||empId, status);
-    if(!reason) return;
-    attendance[date][empId]={status, time:LEAVE_TIME, departure:'', reason};
-
+    const reason=await promptReason(emp?.name||empId,status);
+    if(!reason)return;
+    attendance[date][empId]={status,time:LEAVE_TIME,departure:'',reason};
   }else if(status==='HD'){
     const emp=employees.find(e=>e.id===empId);
     const result=await promptHalfDay(emp?.name||empId);
-    if(!result) return;
-    attendance[date][empId]={status:'HD', time:result.arrival, departure:result.departure, reason:''};
-
+    if(!result)return;
+    attendance[date][empId]={status:'HD',time:result.arrival,departure:result.departure,reason:''};
   }else{
-    // P or L — auto-stamp, auto-late
-    let time=nt(), finalStatus=status;
-    const isToday=date===td();
-    if(isToday){
-      if(status==='P'&&time>LATE_CUT){ finalStatus='L'; toast(`Auto-flagged Late — marked after ${LATE_CUT}`,'info',3000); }
-      else if(status==='L'&&time<=LATE_CUT){ finalStatus='P'; toast(`Marked Present — before ${LATE_CUT} cutoff`,'info',2500); }
+    let time=nt(),fs=status;
+    if(date===td()){
+      if(status==='P'&&time>LATE_CUT){fs='L';toast(`Auto-flagged Late — after ${LATE_CUT}`,'info',3000);}
+      else if(status==='L'&&time<=LATE_CUT){fs='P';toast(`Marked Present — before ${LATE_CUT}`,'info',2500);}
     }
-    attendance[date][empId]={status:finalStatus, time, departure:'', reason:''};
+    attendance[date][empId]={status:fs,time,departure:'',reason:''};
   }
-
-  lsSet('attendance',attendance); renderEmpList();
+  lsSet('attendance',attendance);renderEmpList();
 }
 
-// ─────────────────────────────────────────────
-// EDIT ARRIVAL TIME
-// ─────────────────────────────────────────────
-function editArrival(empId, date){
-  const ts=$(`ts-${empId}`), cur=(attendance[date]||{})[empId]?.time||'';
-  // Append inline editor at end
-  const editor=document.createElement('span');
-  editor.style.display='contents';
-  editor.innerHTML=`
-    <input class="time-inp" type="time" id="te-${empId}" value="${cur}"/>
-    <button class="ts-edit" onclick="applyArrival('${empId}','${date}')">✓</button>
-    <button class="ts-edit" onclick="renderEmpList()">✕</button>`;
-  ts.innerHTML=''; ts.appendChild(editor);
+function editArrival(empId,date){
+  const ts=$(`ts-${empId}`),cur=(attendance[date]||{})[empId]?.time||'';
+  ts.innerHTML=`<input class="time-inp" type="time" id="te-${empId}" value="${cur}"/><button class="ts-edit" onclick="applyArrival('${empId}','${date}')">✓</button><button class="ts-edit" onclick="renderEmpList()">✕</button>`;
   $(`te-${empId}`)?.focus();
 }
 function applyArrival(empId,date){
-  const val=$(`te-${empId}`)?.value; if(!val){renderEmpList();return;}
+  const val=$(`te-${empId}`)?.value;if(!val){renderEmpList();return;}
   if(!attendance[date])attendance[date]={};
   if(!attendance[date][empId])attendance[date][empId]={};
   attendance[date][empId].time=val;
   const s=attendance[date][empId].status;
-  if(s==='P'||s==='L') attendance[date][empId].status=val>LATE_CUT?'L':'P';
-  if(s==='HD'){}  // HD keeps HD regardless
-  lsSet('attendance',attendance); renderEmpList();
+  if(s==='P'||s==='L')attendance[date][empId].status=val>LATE_CUT?'L':'P';
+  lsSet('attendance',attendance);renderEmpList();
 }
-
-// ─────────────────────────────────────────────
-// EDIT DEPARTURE (Half Day)
-// ─────────────────────────────────────────────
-function editDeparture(empId, date){
-  const chip=$(`depChip-${empId}`);
-  if(!chip) return;
+function editDeparture(empId,date){
+  const chip=$(`depChip-${empId}`);if(!chip)return;
   const cur=(attendance[date]||{})[empId]?.departure||'';
-  chip.innerHTML=`
-    <input class="time-inp" type="time" id="dep-${empId}" value="${cur}" style="width:90px"/>
-    <button class="ts-edit" onclick="applyDeparture('${empId}','${date}')">✓</button>
-    <button class="ts-edit" onclick="renderEmpList()">✕</button>`;
+  chip.innerHTML=`<input class="time-inp" type="time" id="dep-${empId}" value="${cur}" style="width:90px"/><button class="ts-edit" onclick="applyDep('${empId}','${date}')">✓</button><button class="ts-edit" onclick="renderEmpList()">✕</button>`;
   $(`dep-${empId}`)?.focus();
 }
-function applyDeparture(empId,date){
-  const val=$(`dep-${empId}`)?.value; if(!val){renderEmpList();return;}
+function applyDep(empId,date){
+  const val=$(`dep-${empId}`)?.value;if(!val){renderEmpList();return;}
   if(!attendance[date])attendance[date]={};
   if(!attendance[date][empId])attendance[date][empId]={};
   attendance[date][empId].departure=val;
-  lsSet('attendance',attendance); renderEmpList();
+  lsSet('attendance',attendance);renderEmpList();
 }
 
-// ─────────────────────────────────────────────
-// REASON MODAL (Absent / On Leave)
-// ─────────────────────────────────────────────
-function promptReason(name, status){
+function promptReason(name,status){
   return new Promise(res=>{
-    modalRes=res; selReason=null;
+    modalRes=res;selReason=null;
     $('mTitle').textContent=status==='A'?'Reason for Absence':'Reason for Leave';
     $('mSub').textContent=`Marking ${name} as ${status==='A'?'Absent':'On Leave'}`;
     $('btnReasonConfirm').disabled=true;
-    $('mOpts').innerHTML=REASONS[status].map(r=>
-      `<button class="reason-opt" onclick="pickReason('${r}')">${r}</button>`
-    ).join('');
+    $('mOpts').innerHTML=REASONS[status].map(r=>`<button class="reason-opt" onclick="pickReason('${r}')">${r}</button>`).join('');
     $('reasonModal').classList.add('open');
   });
 }
-function pickReason(r){ selReason=r; document.querySelectorAll('.reason-opt').forEach(el=>el.classList.toggle('sel',el.textContent===r)); $('btnReasonConfirm').disabled=false; }
-function confirmReason(){ $('reasonModal').classList.remove('open'); if(modalRes){modalRes(selReason);modalRes=null;} }
-function closeReasonModal(){ $('reasonModal').classList.remove('open'); if(modalRes){modalRes(null);modalRes=null;} }
+function pickReason(r){selReason=r;document.querySelectorAll('.reason-opt').forEach(el=>el.classList.toggle('sel',el.textContent===r));$('btnReasonConfirm').disabled=false;}
+function confirmReason(){$('reasonModal').classList.remove('open');if(modalRes){modalRes(selReason);modalRes=null;}}
+function closeReasonModal(){$('reasonModal').classList.remove('open');if(modalRes){modalRes(null);modalRes=null;}}
 
-// ─────────────────────────────────────────────
-// HALF DAY MODAL
-// ─────────────────────────────────────────────
 function promptHalfDay(name){
   return new Promise(res=>{
     hdResolve=res;
     $('hdSub').textContent=`Marking ${name} as Half Day`;
-    $('hdArrival').value=nt();
-    $('hdDeparture').value='';
+    $('hdArrival').value=nt();$('hdDeparture').value='';
     $('hdModal').classList.add('open');
     setTimeout(()=>$('hdDeparture').focus(),120);
   });
 }
 function confirmHalfDay(){
   const dep=$('hdDeparture').value;
-  if(!dep){ toast('Please set a departure time','info'); return; }
-  const arrival=$('hdArrival').value;
+  if(!dep){toast('Please set a departure time','info');return;}
   $('hdModal').classList.remove('open');
-  if(hdResolve){ hdResolve({arrival, departure:dep}); hdResolve=null; }
+  if(hdResolve){hdResolve({arrival:$('hdArrival').value,departure:dep});hdResolve=null;}
 }
-function closeHdModal(){ $('hdModal').classList.remove('open'); if(hdResolve){hdResolve(null);hdResolve=null;} }
+function closeHdModal(){$('hdModal').classList.remove('open');if(hdResolve){hdResolve(null);hdResolve=null;}}
 
-// ─────────────────────────────────────────────
-// HISTORY
-// ─────────────────────────────────────────────
 function setView(v){
   document.querySelectorAll('.view-btn').forEach((b,i)=>b.classList.toggle('on',i===(v==='week'?0:1)));
   const now=new Date();
   if(v==='week'){
-    const day=now.getDay(), mon=new Date(now); mon.setDate(now.getDate()-(day===0?6:day-1));
-    const sun=new Date(mon); sun.setDate(mon.getDate()+6);
-    $('histFrom').value=mon.toISOString().split('T')[0]; $('histTo').value=sun.toISOString().split('T')[0];
+    const day=now.getDay(),mon=new Date(now);mon.setDate(now.getDate()-(day===0?6:day-1));
+    const sun=new Date(mon);sun.setDate(mon.getDate()+6);
+    $('histFrom').value=mon.toISOString().split('T')[0];$('histTo').value=sun.toISOString().split('T')[0];
   }else{
     const y=now.getFullYear(),m=now.getMonth();
     $('histFrom').value=`${y}-${String(m+1).padStart(2,'0')}-01`;
@@ -649,58 +498,43 @@ function setView(v){
 }
 
 async function loadHistory(){
-  const from=$('histFrom').value, to=$('histTo').value;
-  if(!from||!to){ toast('Select date range','info'); return; }
+  const from=$('histFrom').value,to=$('histTo').value;
+  if(!from||!to){toast('Select date range','info');return;}
   $('histContent').innerHTML='<div class="empty"><p>Loading…</p></div>';
   try{
-    const r=await api({action:'getAllAttendance',from,to});
-    if(!r.ok) throw new Error(r.error);
+    const r=await apiGet({action:'getAllAttendance',from,to});
+    if(!r.ok)throw new Error(r.error);
     r.rows.forEach(row=>{
-      if(!attendance[row.date]) attendance[row.date]={};
+      if(!attendance[row.date])attendance[row.date]={};
       attendance[row.date][row.employeeId]={status:row.status,time:row.time,departure:row.departure||'',reason:row.reason};
     });
     lsSet('attendance',attendance);
-  }catch{ toast('Loaded from cache','info'); }
+  }catch{toast('Loaded from local cache','info');}
   renderHistory(from,to);
 }
 
 function renderHistory(from,to){
   const actives=employees.filter(e=>e.active);
-  if(!actives.length){ $('histContent').innerHTML='<div class="empty"><p>No employees.</p></div>'; return; }
-  const dates=[]; let cur=new Date(from+'T00:00:00'), end=new Date(to+'T00:00:00');
-  while(cur<=end){ dates.push(cur.toISOString().split('T')[0]); cur.setDate(cur.getDate()+1); }
+  if(!actives.length){$('histContent').innerHTML='<div class="empty"><p>No employees.</p></div>';return;}
+  const dates=[];let cur=new Date(from+'T00:00:00'),end=new Date(to+'T00:00:00');
+  while(cur<=end){dates.push(cur.toISOString().split('T')[0]);cur.setDate(cur.getDate()+1);}
   const DN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const fmtD=d=>{ const dt=new Date(d+'T00:00:00'); return `${DN[dt.getDay()]}<br>${dt.getDate()} ${MN[dt.getMonth()]}`; };
+  const fmtD=d=>{const dt=new Date(d+'T00:00:00');return `${DN[dt.getDay()]}<br>${dt.getDate()} ${MN[dt.getMonth()]}`;};
   const heads=dates.map(d=>`<th style="text-align:center;min-width:50px">${fmtD(d)}</th>`).join('');
   const rows=actives.map(emp=>{
     const cells=dates.map(d=>{
-      const rec=(attendance[d]||{})[emp.id], s=rec?.status||'';
-      const lbl=s||'—';
+      const rec=(attendance[d]||{})[emp.id],s=rec?.status||'';
       let tip='No data';
-      if(s){
-        tip=`${{P:'Present',L:'Late',HD:'Half Day',A:'Absent',OL:'On Leave'}[s]||s}`;
-        if(rec.time) tip+=` · In ${rec.time}`;
-        if(s==='HD'&&rec.departure) tip+=` · Out ${rec.departure}`;
-        if(rec.reason) tip+=` · ${rec.reason}`;
-      }
-      return `<td style="text-align:center"><span class="cell ${s||'X'}" data-tip="${tip}">${lbl}</span></td>`;
+      if(s){tip=`${{P:'Present',L:'Late',HD:'Half Day',A:'Absent',OL:'On Leave'}[s]||s}`;if(rec.time)tip+=` · In ${rec.time}`;if(s==='HD'&&rec.departure)tip+=` · Out ${rec.departure}`;if(rec.reason)tip+=` · ${rec.reason}`;}
+      return `<td style="text-align:center"><span class="cell ${s||'X'}" data-tip="${tip}">${s||'—'}</span></td>`;
     }).join('');
     return `<tr><td style="font-weight:500;white-space:nowrap">${emp.name}</td><td style="color:var(--dim);font-size:11px;white-space:nowrap">${emp.department}</td>${cells}</tr>`;
   }).join('');
-  $('histContent').innerHTML=`
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Employee</th><th>Dept</th>${heads}</tr></thead>
-      <tbody>${rows}</tbody>
-    </table></div>
-    <div class="legend">
-      <span><span class="cell P"  style="padding:2px 7px">P</span>  Present</span>
-      <span><span class="cell L"  style="padding:2px 7px">L</span>  Late</span>
-      <span><span class="cell HD" style="padding:2px 7px">HD</span> Half Day</span>
-      <span><span class="cell A"  style="padding:2px 7px">A</span>  Absent</span>
-      <span><span class="cell OL" style="padding:2px 7px">OL</span> On Leave</span>
-      <span style="margin-left:4px;font-style:italic">Hover for time & reason</span>
-    </div>`;
+  $('histContent').innerHTML=`<div class="tbl-wrap"><table><thead><tr><th>Employee</th><th>Dept</th>${heads}</tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="legend"><span><span class="cell P" style="padding:2px 7px">P</span> Present</span><span><span class="cell L" style="padding:2px 7px">L</span> Late</span><span><span class="cell HD" style="padding:2px 7px">HD</span> Half Day</span><span><span class="cell A" style="padding:2px 7px">A</span> Absent</span><span><span class="cell OL" style="padding:2px 7px">OL</span> On Leave</span><span style="font-style:italic;margin-left:4px">Hover for details</span></div>`;
 }
+
+
 </script>
 </body>
 </html>
